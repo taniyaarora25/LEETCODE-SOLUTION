@@ -1,0 +1,25 @@
+class Solution {
+    public int reverse(int x) {
+        boolean negative=false;
+        if(x<0){
+            negative = true;
+            x=-x;
+        }
+        int prev=0,rev=0;
+        while(x!=0){
+            int curr=x%10;
+            rev = (rev*10)+curr;
+             if((rev-curr)/10!=prev){
+                System.out.print("WARNING OVERFLOWED");
+                return 0;
+                
+            }
+            
+           
+            prev=rev;
+            x=x/10;
+        }
+        return (negative == true)? -rev : rev;
+        
+    }
+}
